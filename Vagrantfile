@@ -125,21 +125,21 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   if Vagrant.has_plugin?("vagrant-vbguest")
-    # config.vbguest.auto_update = false
+    config.vbguest.auto_update = false
   end
 
-  config.vm.provision :ansible do |ansible|
-    # ansible.playbook = "bootstrap.yml"
-    # ansible.playbook = "nginx.yml"
-    # ansible.playbook = "mysql.yml"
-    # ansible.playbook = "php55.yml"
-    # ansible.playbook = "git.yml"
-    # ansible.playbook = "zsh.yml"
-    # ansible.playbook = "vim.yml"
-    # ansible.playbook = "chara.yml"
-  end
+  # config.vm.provision :ansible do |ansible|
+  #   ansible.playbook = "playbook/bootstrap.yml"
+  #   ansible.playbook = "playbook/nginx.yml"
+  #   ansible.playbook = "playbook/mysql.yml"
+  #   ansible.playbook = "playbook/php55.yml"
+  #   ansible.playbook = "playbook/git.yml"
+  #   ansible.playbook = "playbook/zsh.yml"
+  #   ansible.playbook = "playbook/vim.yml"
+  #   ansible.playbook = "playbook/chara.yml"
+  # end
 
-  config.vm.provision :serverspec do |spec|
-    spec.pattern = 'spec/default/*_spec.rb'
-  end
+  # config.vm.provision :serverspec do |spec|
+  #   spec.pattern = 'spec/default/*_spec.rb'
+  # end
 end
