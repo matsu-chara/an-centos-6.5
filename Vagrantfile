@@ -128,16 +128,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # config.vbguest.auto_update = false
   end
 
-  config.vm.provision :shell, :path => "script/bootstrap.sh"
-  config.vm.provision :shell, :path => "script/nginx.sh"
-  config.vm.provision :shell, :path => "script/mysql.sh"
-  config.vm.provision :shell, :path => "script/php55.sh"
-  config.vm.provision :shell, :path => "script/git.sh"
-  config.vm.provision :shell, :path => "script/zsh.sh"
-  config.vm.provision :shell, :path => "script/vim.sh"
-  config.vm.provision :shell, :path => "script/chara.sh", :privileged => false
-
-  # config.vm.provision :shell, :path => "script/apache.sh"
+  config.vm.provision :ansible do |ansible|
+    # ansible.playbook = "httpd.yml"
+  end
 
   config.vm.provision :serverspec do |spec|
     spec.pattern = 'spec/default/*_spec.rb'
