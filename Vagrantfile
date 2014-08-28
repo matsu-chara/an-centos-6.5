@@ -129,7 +129,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.provision :ansible do |ansible|
-    # ansible.playbook = "httpd.yml"
+    # ansible.playbook = "bootstrap.yml"
+    # ansible.playbook = "nginx.yml"
+    # ansible.playbook = "mysql.yml"
+    # ansible.playbook = "php55.yml"
+    # ansible.playbook = "git.yml"
+    # ansible.playbook = "zsh.yml"
+    # ansible.playbook = "vim.yml"
+    # ansible.playbook = "chara.yml"
   end
 
   config.vm.provision :serverspec do |spec|
