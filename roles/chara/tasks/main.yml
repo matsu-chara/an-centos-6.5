@@ -4,14 +4,17 @@
   sudo: yes
   sudo_user: "{{ user }}"
 
+- name: change shell
+  command: chsh -s /usr/local/bin/zsh {{ user }}
+  args:
+    # 上記コマンドでは生成しないが、二重実行防止の為
+    creates: /home/{{ user }}/.chara.alias.zsh
+
 - name: setup
   shell: |
-    chmod u+x {{ dotfiles_dir }}/.dotfiles/setup.sh &&
-    {{ dotfiles_dir }}/.dotfiles/setup.sh
+    chmod 764 {{ dotfiles_dir }}/.dotfiles/setup.sh &&
+    {{ dotfiles_dir }}/.dotfiles/setup.sh -f
   args:
+    sudo: yes
+    sudo_user: "{{ user }}"
     creates: /home/{{ user }}/.chara.alias.zsh
-  sudo: yes
-  sudo_user: "{{ user }}"
-
-- name: change login shell
-  command: chsh -s /usr/local/bin/zsh {{ user }}
