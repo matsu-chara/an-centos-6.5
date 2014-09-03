@@ -1,0 +1,10 @@
+---
+- name: install mysql mysql-devel mysql-server mysql-utilities
+  yum: name={{ item }} enablerepo=remi state=present
+  with_items:
+    - mysql
+    - mysql-devel
+    - mysql-server
+    - mysql-utilities
+  notify:
+    - restart mysqld

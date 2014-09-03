@@ -1,0 +1,15 @@
+---
+- name: install nginx, mysql, php, git, vim, zsh
+  hosts: dev-server
+  # user: vagrant
+  sudo : yes
+  roles:
+    - common
+    - mysql
+    - nginx
+    # - php55
+    # - git
+    # - vim
+    # - zsh
+    # - chara
+    # - apache

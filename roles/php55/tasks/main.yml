@@ -1,0 +1,32 @@
+---
+- name: install php & plugins
+  yum: name={{ item }} enablerepo=remi,remi-php55 state=present
+  with_items:
+    - php
+    - php-opcache
+    - php-devel
+    - php-mbstring
+    - php-mcrypt
+    - php-mysqlnd
+    - php-pdo
+    - php-pecl-xdebug
+    - php-cli
+    - php-common
+    - php-pecl-apcu
+    - php-fpm
+
+- name: allocate php.ini
+  template: src=../templates/php.ini.j2 dest={{ini_dir}}/php.ini
+
+- name: allocate www.conf
+  template: src=../templates/www.conf.j2 dest={{conf_dir}}/www.conf
+  notify: restart php-fpm
+
+- name: allocate index.php
+  template: src=../templates/index.php.j2 dest={{index.html_dir}}/index.php
+
+- name: install composer
+  shell: >
+    curl -sS https://getcomposer.org/installer | php
+    mv -f composer.phar /usr/local/bin/composer
+  creates: /usr/local/bin/composer

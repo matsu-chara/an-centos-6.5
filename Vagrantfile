@@ -128,18 +128,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vbguest.auto_update = false
   end
 
-  # config.vm.provision :ansible do |ansible|
-  #   ansible.playbook = "playbook/bootstrap.yml"
-  #   ansible.playbook = "playbook/nginx.yml"
-  #   ansible.playbook = "playbook/mysql.yml"
-  #   ansible.playbook = "playbook/php55.yml"
-  #   ansible.playbook = "playbook/git.yml"
-  #   ansible.playbook = "playbook/zsh.yml"
-  #   ansible.playbook = "playbook/vim.yml"
-  #   ansible.playbook = "playbook/chara.yml"
-  # end
+  config.vm.provision :ansible do |ansible|
+    ansible.groups = {
+      "dev-server" => ["default"]
+    }
+    ansible.verbose = "v"
+    ansible.playbook = "site.yml"
+  end
 
-  # config.vm.provision :serverspec do |spec|
-  #   spec.pattern = 'spec/default/*_spec.rb'
-  # end
+  config.vm.provision :serverspec do |spec|
+    spec.pattern = 'spec/default/*_spec.rb'
+  end
 end
