@@ -15,8 +15,10 @@
 - name: unarchive source
   command: tar zxvf git-{{ version }}.tar.gz chdir={{ src }} creates={{ src }}/git-{{ version }}
 
-- name: make
-  command: make prefix=/usr/local all chdir={{ src }}/git-{{ version }}
-
-- name: make install
-  command: make prefix=/usr/local install chdir={{ src }}/git-{{ version }}
+- name: make & install
+  shell: |
+    make prefix=/usr/local all
+    make prefix=/usr/local install
+  args:
+    chdir: "{{ src }}/git-{{ version }}"
+    creates: /usr/local/bin/git

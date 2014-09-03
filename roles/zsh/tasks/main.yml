@@ -1,0 +1,22 @@
+---
+- name: install zsh-dependencies
+  yum: name={{ item }} state=present
+  with_items:
+    - gcc
+    - ncurses-devel
+
+- name: get source
+  get_url: url=http://sourceforge.net/projects/zsh/files/zsh/{{ version}}/zsh-{{ version }}.tar.bz2/download dest={{ src }}/zsh-{{ version }}.tar.bz2
+
+- name: unarchive source
+  command: tar jxvf zsh-{{ version }}.tar.bz2 chdir={{ src }} creates={{ src }}/zsh-{{ version }}
+
+- name: configure & make & install
+  shell: |
+        ./configure --enable-multibyte --enable-locale --with-tcsetpgrp &&
+        make &&
+        make install &&
+        ! grep -q /usr/local/bin/zsh /etc/shells && sudo sh -c "echo /usr/local/bin/zsh >> /etc/shells"
+  args:
+    chdir: "{{ src }}/zsh-{{ version }}"
+    creates: /usr/local/bin/zsh

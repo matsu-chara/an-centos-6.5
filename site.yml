@@ -4,13 +4,13 @@
   # user: vagrant
   sudo : yes
   roles:
-    # - common
+    - common
     # - mysql
     # - nginx
     # - php55
     - git
-    # - vim
-    # - zsh
+    - zsh
+    - vim
     # - chara
 
     # can't use with nginx

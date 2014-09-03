@@ -1,0 +1,40 @@
+---
+- name: install vim-dependencies
+  yum: name={{ item }} state=present
+  with_items:
+    - gcc
+    - mercurial
+    - ncurses-devel
+    - lua
+    - lua-devel
+
+- name: install vim-optional-dependencies
+  yum: name={{ item }} state=present
+  with_items:
+    - perl
+    - perl-devel
+    - perl-ExtUtils-Embed
+    - ruby
+    - ruby-devel
+    - python
+    - python-devel
+
+- name: get source
+  hg: repo=https://vim.googlecode.com/hg/ dest={{ src }}/vim
+
+- name: configure & make & install
+  shell: |
+        ./configure --with-features=huge \
+                    --enable-largefile \
+                    --enable-luainterp \
+                    --enable-gui=auto \
+                    --enable-cscope \
+                    --enable-rubyinterp \
+                    --enable-pythoninterp --with-python-config-dir=/usr/lib/python2.6/config \
+                    --enable-perlinterp \
+                    --enable-fail-if-missing &&
+          make &&
+          make install
+  args:
+    chdir: "{{ src }}/vim"
+    creates: /usr/local/bin/vim
