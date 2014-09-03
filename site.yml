@@ -5,13 +5,13 @@
   sudo : yes
   roles:
     - common
-    # - mysql
-    # - nginx
-    # - php55
+    - mysql
+    - nginx
+    - php55
     - git
     - zsh
     - vim
-    # - chara
+    - chara
 
     # can't use with nginx
     # - apache
