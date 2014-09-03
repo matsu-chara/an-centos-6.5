@@ -6,5 +6,5 @@
   yum: name=nginx state=present
 
 - name: default.conf allocate
-  template: src=../templates/default.conf.j2 dest={{conf_dir}}/default.conf
+  template: src=default.conf.j2 dest={{conf_dir}}/default.conf
   notify: restart nginx

@@ -16,14 +16,14 @@
     - php-fpm
 
 - name: allocate php.ini
-  template: src=../templates/php.ini.j2 dest={{ini_dir}}/php.ini
+  template: src=php.ini.j2 dest={{ini_dir}}/php.ini
 
 - name: allocate www.conf
-  template: src=../templates/www.conf.j2 dest={{conf_dir}}/www.conf
+  template: src=www.conf.j2 dest={{conf_dir}}/www.conf
   notify: restart php-fpm
 
 - name: allocate index.php
-  template: src=../templates/index.php.j2 dest={{index_html_dir}}/index.php
+  template: src=index.php.j2 dest={{index_html_dir}}/index.php
 
 - name: get composer
   shell: |
