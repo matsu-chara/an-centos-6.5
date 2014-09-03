@@ -1,17 +1,17 @@
 ---
 - name: clone dotfiles
-  git: repo=https://github.com/matsu-chara/dotfiles/ {{ dotfiles_dir }}/.dotfiles
+  git: repo=https://github.com/matsu-chara/dotfiles/ dest={{ dotfiles_dir }}/.dotfiles
   sudo: yes
-  sudo_user: {{ user }}
+  sudo_user: "{{ user }}"
 
 - name: setup
-  command: |
+  shell: |
     chmod u+x {{ dotfiles_dir }}/.dotfiles/setup.sh &&
-    {{ dotfiles_dir }}/.dotfiles/setup.sh &&
+    {{ dotfiles_dir }}/.dotfiles/setup.sh
+  args:
+    creates: /home/{{ user }}/.chara.alias.zsh
   sudo: yes
-  sudo_user: {{ user }}
+  sudo_user: "{{ user }}"
 
 - name: change login shell
   command: chsh -s /usr/local/bin/zsh {{ user }}
-
-
