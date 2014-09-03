@@ -29,4 +29,5 @@
   shell: >
     curl -sS https://getcomposer.org/installer | php
     mv -f composer.phar /usr/local/bin/composer
-  creates: /usr/local/bin/composer
+  args:
+    creates: /usr/local/bin/composer

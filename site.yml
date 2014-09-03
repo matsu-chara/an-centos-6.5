@@ -7,7 +7,7 @@
     - common
     - mysql
     - nginx
-    # - php55
+    - php55
     # - git
     # - vim
     # - zsh
