@@ -25,8 +25,8 @@
 - name: allocate index.php
   template: src=../templates/index.php.j2 dest={{index_html_dir}}/index.php
 
-- name: install composer
-  shell: >
+- name: get composer
+  shell: |
     curl -sS https://getcomposer.org/installer | php
     mv -f composer.phar /usr/local/bin/composer
   args:

@@ -12,4 +12,6 @@
     # - vim
     # - zsh
     # - chara
+
+    # can't use with nginx
     # - apache
