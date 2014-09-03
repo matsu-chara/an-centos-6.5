@@ -23,7 +23,7 @@
   notify: restart php-fpm
 
 - name: allocate index.php
-  template: src=../templates/index.php.j2 dest={{index.html_dir}}/index.php
+  template: src=../templates/index.php.j2 dest={{index_html_dir}}/index.php
 
 - name: install composer
   shell: >

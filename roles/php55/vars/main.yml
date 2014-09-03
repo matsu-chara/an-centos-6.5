@@ -1,4 +1,4 @@
 ---
 ini_dir: /etc
 conf_dir: /etc/php-fpm.d
-index.html_dir: /var/www/html
+index_html_dir: /var/www/html
