@@ -29,3 +29,12 @@ vagrant up
 ```sh
 rake spec
 ```
+
+vagrant-pushoverでvagrant up時にプッシュ通知([pushover](https://pushover.net/)利用)
+
+```sh
+vagrant plugin install vagrant-pushover
+vagrant pushover-init
+```
+
+して、`.vagrant/pushover.rb`内の`user`, `token`を編集すれば準備完了
