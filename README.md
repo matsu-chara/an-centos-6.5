@@ -30,11 +30,13 @@ vagrant up
 rake spec
 ```
 
-vagrant-pushoverでvagrant up時にプッシュ通知([pushover](https://pushover.net/)利用)
+### おまけ
+
+[vagrant-pushover](http://deeeet.com/writing/2014/02/19/vagrant-pushover/)でvagrant up時にプッシュ通知([pushover](https://pushover.net/)利用)
 
 ```sh
 vagrant plugin install vagrant-pushover
 vagrant pushover-init
+sed -ie "s/YOUR APP TOKEN/<APP TOKEN>/" .vagrant/pushover.rb
+sed -ie "s/YOUR USER KEY/<USER KEY>/" .vagrant/pushover.rb
 ```
-
-して、`.vagrant/pushover.rb`内の`user`, `token`を編集すれば準備完了

@@ -128,6 +128,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # config.vbguest.auto_update = false
   end
 
+  if Vagrant.has_plugin?("vagrant-pushover")
+      # config.pushover.read_key
+  end
+
   config.vm.provision :ansible do |ansible|
     ansible.groups = {
       "dev-server" => ["default"]
