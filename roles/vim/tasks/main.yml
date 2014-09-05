@@ -21,6 +21,7 @@
 
 - name: get source
   hg: repo=https://vim.googlecode.com/hg/ dest={{ src }}/vim revision={{ tag_name }}
+
 - name: configure & make & install
   shell: |
         ./configure --with-features=huge \

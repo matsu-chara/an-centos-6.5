@@ -8,5 +8,5 @@ end
 
 describe file('/home/vagrant/.dotfiles/setup.sh') do
   it { should be_file }
-  it { should be_mode 764 }
+  it { should be_mode 744 }
 end

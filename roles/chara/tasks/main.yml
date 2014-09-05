@@ -1,20 +1,18 @@
 ---
 - name: clone dotfiles
-  git: repo=https://github.com/matsu-chara/dotfiles/ dest={{ dotfiles_dir }}/.dotfiles
+  git: repo=https://github.com/matsu-chara/dotfiles/ dest={{ dotfiles_dir }}/.dotfiles update=no
   sudo: yes
   sudo_user: "{{ user }}"
 
 - name: change shell
-  command: chsh -s /usr/local/bin/zsh {{ user }}
-  args:
-    # 上記コマンドでは生成しないが、二重実行防止の為
-    creates: /home/{{ user }}/.chara.alias.zsh
+  command: chsh -s /usr/local/bin/zsh {{ user }} creates=/home/{{ user }}/.chara.alias.zsh
+  # create:上記コマンドでは生成しないが、二重実行防止の為
 
 - name: setup
   shell: |
-    chmod 764 {{ dotfiles_dir }}/.dotfiles/setup.sh &&
-    {{ dotfiles_dir }}/.dotfiles/setup.sh -f
+    chmod 744 {{ dotfiles_dir }}/.dotfiles/setup.sh &&
+    {{ dotfiles_dir }}/.dotfiles/setup.sh -f /home/{{ user }}
   args:
+    creates: /home/{{ user }}/.chara.alias.zsh
     sudo: yes
     sudo_user: "{{ user }}"
-    creates: /home/{{ user }}/.chara.alias.zsh
