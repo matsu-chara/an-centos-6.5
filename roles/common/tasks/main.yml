@@ -2,8 +2,11 @@
 - name: install libselinux-python for lineinfile
   yum: name=libselinux-python state=present
 
-- name: set time zone to Asia/Tokyo
+- name: set time zone to Asia/Tokyo(1/2)
   copy: src=/usr/share/zoneinfo/Asia/Tokyo dest=/etc/localtime
+
+- name: set time zone to Asia/Tokyo(2/2)
+  template: src=clock.j2 dest=/etc/sysconfig/clock
 
 - name: yum repository use only jp server
   lineinfile: dest=/etc/yum/pluginconf.d/fastestmirror.conf line="include_only=.jp"
