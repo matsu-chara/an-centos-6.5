@@ -8,6 +8,7 @@
     - mysql
     - nginx
     - php55
+    - jenkins
     - git
     - zsh
     - vim

@@ -35,6 +35,10 @@ server {
         include        fastcgi_params;
     }
 
+    location /jenkins {
+        proxy_pass http://localhost:8080;
+    }
+
     # deny access to .htaccess files, if Apache's document root
     # concurs with nginx's one
     #
