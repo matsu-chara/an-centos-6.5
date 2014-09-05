@@ -1,4 +1,7 @@
 ---
+- name: set time zone to Asia/Tokyo
+  copy: src=/usr/share/zoneinfo/Asia/Tokyo dest=/etc/localtime
+
 - name: install libselinux-python for lineinfile
   yum: name=libselinux-python state=present
 
