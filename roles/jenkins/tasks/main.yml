@@ -6,11 +6,11 @@
   get_url: url="http://pkg.jenkins-ci.org/redhat/jenkins.repo" dest=/etc/yum.repos.d/jenkins.repo
 
 - name: set jenkins repo
-  command: rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
+  rpm_key: state=present key=http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
 
 - name: install jenkins
   yum: name=jenkins state=present
 
 - name: jenkins reverse proxy settings
-  lineinfile: dest=/etc/sysconfig/jenkins regexp="JENKINS_ARGS=\"\"" line="JENKINS_ARGS=\"--prefix=/jenkins --httpPort=${JENKINS_PORT} --ajp13Port=${JENKINS_AJP_PORT}\""
+  lineinfile: dest=/etc/sysconfig/jenkins state=present backrefs=yes regexp="JENKINS_ARGS=\"\"" line="JENKINS_ARGS=\"--prefix=/jenkins --httpPort=${JENKINS_PORT} --ajp13Port=${JENKINS_AJP_PORT}\""
   notify: restart jenkins

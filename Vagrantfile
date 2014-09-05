@@ -125,11 +125,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   if Vagrant.has_plugin?("vagrant-vbguest")
-    config.vbguest.auto_update = false
+    # config.vbguest.auto_update = false
   end
 
   if Vagrant.has_plugin?("vagrant-pushover")
-    # config.pushover.read_key
+    config.pushover.read_key
   end
 
   if Vagrant.has_plugin?("ansible")
@@ -143,8 +143,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   if Vagrant.has_plugin?("vagrant-serverspec")
-    config.vm.provision :serverspec do |spec|
-      spec.pattern = 'spec/default/*_spec.rb'
-    end
+    # config.vm.provision :serverspec do |spec|
+    #   spec.pattern = 'spec/default/*_spec.rb'
+    # end
   end
 end
