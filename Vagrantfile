@@ -129,7 +129,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   if Vagrant.has_plugin?("vagrant-pushover")
-    config.pushover.read_key
+    # config.pushover.read_key
   end
 
   if Vagrant.has_plugin?("ansible")

@@ -31,7 +31,7 @@ vagrant up
 rake spec
 ```
 
-### おまけ
+### プラグイン
 
 [vagrant-pushover](http://deeeet.com/writing/2014/02/19/vagrant-pushover/)でvagrant up時にプッシュ通知([pushover](https://pushover.net/)利用)
 
@@ -41,3 +41,11 @@ vagrant pushover-init
 sed -ie "s/YOUR APP TOKEN/<APP TOKEN>/" .vagrant/pushover.rb
 sed -ie "s/YOUR USER KEY/<USER KEY>/" .vagrant/pushover.rb
 ```
+
+
+その他
+
+* vagrant-vbguest: vagrunt up時にvbguestをアップデート
+* vagrant-cachier: yumなどのキャッシュ
+* ansible
+* vagrant-serverspec
