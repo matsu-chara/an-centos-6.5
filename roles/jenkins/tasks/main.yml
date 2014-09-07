@@ -11,6 +11,6 @@
 - name: install jenkins
   yum: name=jenkins state=present
 
-- name: jenkins reverse proxy settings
-  lineinfile: dest=/etc/sysconfig/jenkins state=present backrefs=yes regexp="JENKINS_ARGS=\"\"" line="JENKINS_ARGS=\"--prefix=/jenkins --httpPort=${JENKINS_PORT} --ajp13Port=${JENKINS_AJP_PORT}\""
+- name: jenkins config allocate
+  template: src=jenkins.j2 dest=/etc/sysconfig/jenkins
   notify: restart jenkins
