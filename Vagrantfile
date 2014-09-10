@@ -132,14 +132,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # config.pushover.read_key
   end
 
-  if Vagrant.has_plugin?("ansible")
-    config.vm.provision :ansible do |ansible|
-      ansible.groups = {
-        "dev-server" => ["default"]
-      }
-      ansible.verbose = "v"
-      ansible.playbook = "site.yml"
-    end
+  config.vm.provision :ansible do |ansible|
+    ansible.groups = {
+      "dev-server" => ["default"]
+    }
+    ansible.verbose = "v"
+    ansible.playbook = "site.yml"
   end
 
   if Vagrant.has_plugin?("vagrant-serverspec")
