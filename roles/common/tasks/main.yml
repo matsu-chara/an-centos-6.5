@@ -38,3 +38,6 @@
 # DEV TOOL
 - name: install the 'Development tools' package group
   yum: name="@Development tools" state=present
+
+- name: install httpd-tolls for htpasswd
+  yum: name=httpd-tools state=present
