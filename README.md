@@ -16,6 +16,7 @@ vagrant vbguest
 vagrant ssh -c "sudo ln -s -f /dev/null /etc/udev/rules.d/70-persistent-net.rules"
 vagrant package
 vagrant box add an-centos-6.5 package.box
+rm package.box
 ```
 
 イメージ利用
