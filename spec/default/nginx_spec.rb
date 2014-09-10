@@ -22,23 +22,3 @@ describe file('/etc/nginx/conf.d/default.conf') do
   it { should be_file }
   its(:content) { should match(/root   \/var\/www\/html;/) }
 end
-
-describe file('/etc/nginx/conf.d/virtual.conf') do
-  it { should be_file }
-end
-
-describe file('/etc/nginx/.htpasswd') do
-  it { should be_file }
-end
-
-describe file('/etc/nginx/ssl') do
-  it { should be_directory }
-end
-
-describe file('/etc/nginx/ssl/server.crt') do
-  it { should be_directory }
-end
-
-describe file('/etc/nginx/ssl/server.key') do
-  it { should be_directory }
-end
