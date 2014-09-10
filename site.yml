@@ -9,7 +9,3 @@
     - zsh
     - vim
     - chara
-
-    ## 予備roles
-    # - apache # can't use with nginx
-    # - jenkins
