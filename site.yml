@@ -1,13 +1,10 @@
 ---
-- name: install nginx, mysql, php, git, vim, zsh
+- name: install base server
   hosts: dev-server
   # user: vagrant
   sudo : yes
   roles:
     - common
-    - mysql
-    - nginx
-    - php55
     - git
     - zsh
     - vim

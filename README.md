@@ -2,8 +2,6 @@ centos6.5(ansible版)
 
 epel rpforge remi登録済み
 git2.1, vim7.4, zsh5.0.6
-nginx1.6(apache2.2), mysql5.5, php5.5
-jenkins
 
 インストール
 ```sh

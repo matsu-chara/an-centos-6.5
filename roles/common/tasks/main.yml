@@ -3,7 +3,7 @@
   yum: name=libselinux-python state=present
 
 - name: set time zone to Asia/Tokyo(1/2)
-  file: src=/usr/share/zoneinfo/Asia/Tokyo dest=/etc/localtime state=link
+  file: src=/usr/share/zoneinfo/Asia/Tokyo dest=/etc/localtime state=link force=yes
 
 - name: set time zone to Asia/Tokyo(2/2)
   copy: src=clock dest=/etc/sysconfig/clock
