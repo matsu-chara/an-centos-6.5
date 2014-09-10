@@ -12,5 +12,5 @@
   yum: name=jenkins state=present
 
 - name: jenkins config allocate
-  template: src=jenkins.j2 dest=/etc/sysconfig/jenkins
+  template: src=jenkins.j2 dest={{conf_dir}}/jenkins
   notify: restart jenkins

@@ -8,11 +8,11 @@
     - mysql
     - nginx
     - php55
-    - jenkins
     - git
     - zsh
     - vim
     - chara
 
-    # can't use with nginx
-    # - apache
+    ## 予備roles
+    # - apache # can't use with nginx
+    # - jenkins
