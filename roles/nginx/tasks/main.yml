@@ -13,14 +13,10 @@
   template: src=virtual.conf.j2 dest={{conf_dir}}/virtual.conf
   notify: restart nginx
 
-- name: server.crt allocate
-  template: src=server.crt.j2 dest={{ssl_dir}}/server.crt
-  notify: restart nginx
-
-- name: server.key allocate
-  template: src=server.key.j2 dest={{ssl_dir}}/server.key
+- name: ssl files allocate
+  copy: src=ssl dest={{ssl_dir}}
   notify: restart nginx
 
 - name: .htpasswd allocate
-  template: src=_htpasswd.j2 dest={{htpasswd_dir}}/.htpasswd
+  files: src=_htpasswd dest={{htpasswd_dir}}/.htpasswd
   notify: restart nginx
