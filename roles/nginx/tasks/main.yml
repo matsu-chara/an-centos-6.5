@@ -8,15 +8,3 @@
 - name: default.conf allocate
   template: src=default.conf.j2 dest={{conf_dir}}/default.conf
   notify: restart nginx
-
-- name: virtual.conf allocate
-  template: src=virtual.conf.j2 dest={{conf_dir}}/virtual.conf
-  notify: restart nginx
-
-- name: ssl files allocate
-  copy: src=ssl dest={{ssl_dir}}
-  notify: restart nginx
-
-- name: .htpasswd allocate
-  files: src=_htpasswd dest={{htpasswd_dir}}/.htpasswd
-  notify: restart nginx
