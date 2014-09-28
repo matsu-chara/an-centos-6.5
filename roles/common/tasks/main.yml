@@ -41,3 +41,10 @@
 
 - name: install httpd-tolls for htpasswd
   yum: name=httpd-tools state=present
+
+- name: install man
+  yum: name={{ item }} state=present
+  with_items:
+    - man
+    - man-pages
+    - man-pages-ja
