@@ -1,0 +1,18 @@
+---
+- name: install httpd-tolls for htpasswd
+  yum: name=httpd-tools state=present
+
+- name: install man
+  yum: name={{ item }} state=present
+  with_items:
+    - man
+    - man-pages
+    - man-pages-ja
+
+- name: install utils
+  yum: name={{item}} state=present
+  with_items:
+    - tig
+    - ctags
+    - tmux
+    - jq

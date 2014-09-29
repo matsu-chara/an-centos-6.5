@@ -1,3 +1,4 @@
 ---
-dotfiles_dir: /home/vagrant
 user: vagrant
+# user: chara
+dotfiles_dir: /home/{{ user }}

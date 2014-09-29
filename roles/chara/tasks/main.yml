@@ -1,4 +1,8 @@
 ---
+- name: add chara user when user == chara
+  user: name=chara groups=wheel append=yes
+  when: user == "chara"
+
 - name: clone dotfiles
   git: repo=https://github.com/matsu-chara/dotfiles/ dest={{ dotfiles_dir }}/.dotfiles update=no
   sudo: yes
