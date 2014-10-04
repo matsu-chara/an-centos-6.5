@@ -15,7 +15,7 @@
 - name: setup
   shell: |
     chmod 744 {{ dotfiles_dir }}/.dotfiles/setup.sh &&
-    {{ dotfiles_dir }}/.dotfiles/setup.sh -f /home/{{ user }}
+    {{ dotfiles_dir }}/.dotfiles/setup.sh /home/{{ user }}
   args:
     creates: /home/{{ user }}/.chara.alias.zsh
     sudo: yes
