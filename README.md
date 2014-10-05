@@ -31,6 +31,7 @@ rake spec
 ```
 
 ### プラグイン
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/matsu-chara/an-centos-6.5?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 [vagrant-pushover](http://deeeet.com/writing/2014/02/19/vagrant-pushover/)でvagrant up時にプッシュ通知([pushover](https://pushover.net/)利用)
 
